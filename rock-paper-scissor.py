@@ -34,10 +34,13 @@ if choice == 0:
     choice = rock
 elif choice == 1:
     choice = paper
-else:
+elif choice == 2:
     choice = scissors
+else:
+    choice = choice
 
 print(f"you choice is {choice}")
+
 
 if computer_choose == 0:
     computer_choose = rock
@@ -45,11 +48,13 @@ elif computer_choose == 1:
     computer_choose = scissors
 else:
     computer_choose = paper
-computer_choose = computer_choose.lower()
+
+#computer_choose = computer_choose.lower()
 print(f"computer choose {computer_choose}")
 
-
-if computer_choose == rock and choice == scissors:
+if choice != rock and choice != paper and choice != scissors:
+    print(f"your choice {choice} is invalid")
+elif computer_choose == rock and choice == scissors:
     print("computer win")
 elif computer_choose == scissors and choice == rock:
     print("You win")

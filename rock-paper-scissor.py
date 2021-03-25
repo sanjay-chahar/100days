@@ -1,70 +1,47 @@
+#Password Generator Project
 import random
-computer_choose = random.randint(0, 2)
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
 
-rock = '''
-    _______
----'   ____)
-      (_____)
-      (_____)
-      (____)
----.__(___)
-'''
-
-paper = '''
-    _______
----'   ____)____
-          ______)
-          _______)
-         _______)
----.__________)
-'''
-
-scissors = '''
-    _______
----'   ____)____
-          ______)
-       __________)
-      (____)
----.__(___)
-'''
-
-#print(rock)
-choice = int(input("What you choose ? type 0 for Rock, 1 for Paper and 2 for Scissors. =  "))
-if choice == 0:
-    choice = rock
-elif choice == 1:
-    choice = paper
-elif choice == 2:
-    choice = scissors
-else:
-    choice = choice
-
-print(f"you choice is {choice}")
+print("Welcome to the PyPassword Generator!")
+nr_letters = int(input("How many letters would you like in your password?\n"))
+nr_symbols = int(input(f"How many symbols would you like?\n"))
+nr_numbers = int(input(f"How many numbers would you like?\n"))
+letter = ""
+symbol = ""
+num = ""
+passwords = ""
+new_passwd = ""
+s = nr_letters + nr_symbols + nr_numbers
+print(s)
+#Eazy Level - Order not randomised:
+#e.g. 4 letter, 2 symbol, 2 number = JduE&!91
 
 
-if computer_choose == 0:
-    computer_choose = rock
-elif computer_choose == 1:
-    computer_choose = scissors
-else:
-    computer_choose = paper
+#Hard Level - Order of characters randomised:
+#e.g. 4 letter, 2 symbol, 2 number = g^2jk8&P
 
-#computer_choose = computer_choose.lower()
-print(f"computer choose {computer_choose}")
+for count in range(nr_letters):
+    #print(random.choice(nr_letters))
+    letter += random.choice(letters)
+#print(letter)
 
-if choice != rock and choice != paper and choice != scissors:
-    print(f"your choice {choice} is invalid")
-elif computer_choose == rock and choice == scissors:
-    print("computer win")
-elif computer_choose == scissors and choice == rock:
-    print("You win")
-elif computer_choose == scissors and choice == paper:
-    print("computer win")
-elif computer_choose == paper and choice == scissors:
-    print("you win")
-elif computer_choose == paper and choice == rock:
-    print("com")
-elif choice == paper and computer_choose == rock:
-    print("you win")
-elif computer_choose == choice:
-    print("Match draw")
+for sym_count in range(nr_letters):
+    symbol += random.choice(symbols)
+#print(symbol)
+
+for nu_count in range(nr_numbers):
+    num += random.choice(numbers)
+#print(num)
+passwords = (letter + symbol + num)
+print(passwords)
+newpassword = list(passwords)
+#print(newpassword)
+#js = random.choice(newpassword, k = s)
+
+#print(f"printing the j {js}")
+
+for new_pass_count in range(s):
+    new_passwd += random.choice(newpassword)
+print(f"this is you strong password {new_passwd}")
